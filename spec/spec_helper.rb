@@ -1,6 +1,7 @@
 ENV["RAILS_ENV"] = 'test'
 require 'shoulda/matchers'
 
+require 'support/factory_bot.rb'
 require 'support/rspec-rails'
 require 'support/simplecov'
 require 'support/fuubar'
