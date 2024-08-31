@@ -48,5 +48,11 @@ RSpec.describe CompaniesController, type: :controller do
 
       expect(assigns(:company)).to be_nil
     end
+
+    it "should return 404" do
+      get :show, params: { id: 0 }
+
+      expect(response).to have_http_status(404)
+    end
   end
 end
