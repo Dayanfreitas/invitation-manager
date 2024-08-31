@@ -1,13 +1,21 @@
-class InviteService
-  def create_invitation(email:, company_id:)
-    user = search_users_by_email(email)
-    
-    if user.present?
-      return Invitation.new
-    end
+class InviteService < BaseService
+  def initialize(repository)
+    super(repository)
+  end
 
+  def create_invitation(email:, company_id:)
+    user = users_service.find_or_create_user(email)
     
-    return Invitation.new
+    return false unless user.present?
+
+    attributes_invitation = {
+      company_id: company_id,
+      user_id: user.id,
+      status: Invitation::Status::PENDING,
+      invited_at: Time.now
+    }
+
+    return Invitation.new(attributes_invitation)    
   end
 
   def send_invitation

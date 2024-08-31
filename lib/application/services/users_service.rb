@@ -7,13 +7,16 @@ class UsersService < BaseService
     user = find_by_email(email)
     
     return user if user.present?
+    # @model.new(build_guest(email))
 
     attributes = {
       email: email,
       password: SecureRandom.hex(10)
     }
 
-    @repository.create(attributes: attributes)
+    object = @repository.create(attributes: attributes)
+
+    object.valid? ? object : false
   end
 
   def find_by_email(email)
