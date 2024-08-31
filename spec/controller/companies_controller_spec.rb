@@ -1,6 +1,11 @@
 require 'rails_helper'
 
 RSpec.describe CompaniesController, type: :controller do
+
+  before(:each) do
+    sign_in FactoryBot.create(:user)
+  end
+
   context "#GET index" do
     it "should success render to index" do
       get :index
