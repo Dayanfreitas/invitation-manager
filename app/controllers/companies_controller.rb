@@ -5,12 +5,14 @@ class CompaniesController < ApplicationController
     @companies = Company.all
   end
 
-  def show
-    render json: @company
-  end
+  def show; end
 
   def edit
     @company = Company.find(params[:id])
+  end
+
+  def new
+    @company = Company.new
   end
 
   def create
