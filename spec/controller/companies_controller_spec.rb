@@ -76,4 +76,34 @@ RSpec.describe CompaniesController, type: :controller do
       expect(response).to have_http_status(:unprocessable_entity)
     end
   end
+
+  context "PUT #update" do
+    it "should success update company" do
+      company = FactoryBot.create(:company)
+      put :update, params: { id: company.id, company: { name: "Company 2" } }
+
+      expect(response).to have_http_status(:success)
+    end
+
+    it "should return name updated" do
+      company = FactoryBot.create(:company)
+      put :update, params: { id: company.id, company: { name: "Company 2" } }
+
+      expect(assigns(:company).name).to eq("Company 2")
+    end
+    
+    it "should return company" do
+      company = FactoryBot.create(:company)
+      put :update, params: { id: company.id, company: { name: "Company 2" } }
+
+      expect(assigns(:company)).to eq(company)
+    end
+
+    it "should not update company" do
+      company = FactoryBot.create(:company)
+      put :update, params: { id: company.id, company: { name: "" } }
+
+      expect(response).to have_http_status(:unprocessable_entity)
+    end
+  end
 end
