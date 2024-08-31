@@ -27,6 +27,24 @@ RSpec.describe InviteService, type: :service do
     end
   end
 
+  describe '#create' do
+    context 'when attributes is valid' do
+      it 'should return object Invitation' do
+        invitation = build(:invitation)
+
+        expect(subject.create(attributes: invitation.attributes)).to be_a(Invitation)
+      end
+    end
+    context 'when attributes is invalid' do
+      it 'should return object Invitation' do
+        invitation = build(:invitation, company: nil)
+
+        expect(subject.create(attributes: invitation.attributes)).to be_falsey
+      end
+    end
+  end
+
+
   describe "#search_users_by_email" do
     context "when user is found" do
       it "should return object User" do

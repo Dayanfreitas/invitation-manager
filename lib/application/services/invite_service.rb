@@ -15,7 +15,12 @@ class InviteService < BaseService
       invited_at: Time.now
     }
 
-    return Invitation.new(attributes_invitation)    
+    return create(attributes: attributes_invitation)    
+  end
+
+  def create(attributes: {})
+    object = @repository.create(attributes: attributes)
+    object.valid? ? object : false
   end
 
   def send_invitation
