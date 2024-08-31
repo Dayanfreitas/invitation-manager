@@ -21,6 +21,9 @@ RSpec.configure do |config|
   end
 
   config.include Shoulda::Matchers::ActiveRecord, type: :model
+  
+  config.include Devise::Test::ControllerHelpers, type: :controller
+  config.include Devise::Test::ControllerHelpers, type: :view
 
   config.mock_with :rspec
 
