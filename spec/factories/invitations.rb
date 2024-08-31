@@ -4,5 +4,6 @@ FactoryBot.define do
     user { create(:user) }
     status { Invitation::Status::PENDING }
     invited_at { Time.now }
+    token { TokenInviteService.generate_token }
   end
 end

@@ -12,7 +12,8 @@ class InviteService < BaseService
       company_id: company_id,
       user_id: user.id,
       status: Invitation::Status::PENDING,
-      invited_at: Time.now
+      invited_at: Time.now,
+      token: TokenInviteService.generate_token
     }
 
     return create(attributes: attributes_invitation)    
