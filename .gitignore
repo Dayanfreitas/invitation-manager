@@ -30,3 +30,6 @@
 /coverage
 
 .byebug_history
+
+schema.rb
+spec/specs_reports.*
