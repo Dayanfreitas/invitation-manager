@@ -65,7 +65,7 @@ group :test do
   gem 'simplecov', '0.22.0'
   gem 'rspec-sidekiq', '4.1.0'
   # gem 'sidekiq-status', '3.0.3'
-  # gem 'rails-controller-testing', '1.0.5'
+  gem 'rails-controller-testing', '1.0.5'
 end
 
 
