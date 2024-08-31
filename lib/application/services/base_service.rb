@@ -1,6 +1,6 @@
 class BaseService
   def initialize(repository)
-    @repository = @repository
+    @repository = repository
   end
 
   def create
