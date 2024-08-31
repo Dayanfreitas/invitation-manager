@@ -1,5 +1,5 @@
 class CompaniesController < ApplicationController
-  before_action :set_company, only: %i[ show update destroy ]
+  before_action :set_company, only: %i[ show update edit destroy ]
 
   def index
     @companies = Company.all
@@ -7,6 +7,10 @@ class CompaniesController < ApplicationController
 
   def show
     render json: @company
+  end
+
+  def edit
+    @company = Company.find(params[:id])
   end
 
   def create
