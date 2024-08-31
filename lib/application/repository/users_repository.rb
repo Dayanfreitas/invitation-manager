@@ -18,4 +18,8 @@ class UsersRepository < BaseRepository
   def find(id)
     @model.find_by_id(id)
   end
+
+  def find_by_email(email)
+    @model.find_by_email(email)
+  end
 end
