@@ -5,6 +5,13 @@ require 'spec_helper'
 RSpec.describe BaseService, type: :service do
   context 'when BaseService is inherited' do
     class DummyBaseService < BaseService
+      def initialize
+        super(
+          BaseRepository.new(
+            Class.new
+          )
+        )
+      end
     end
 
     subject { DummyBaseService.new }

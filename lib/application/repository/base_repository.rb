@@ -1,6 +1,6 @@
 class BaseRepository
   def initialize(model)
-    @model = @model
+    @model = model
   end
 
   def all
@@ -21,5 +21,9 @@ class BaseRepository
 
   def find
     raise NotImplementedError
+  end
+  
+  def model
+    @model
   end
 end

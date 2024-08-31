@@ -1,4 +1,8 @@
 class BaseService
+  def initialize(repository)
+    @repository = @repository
+  end
+
   def create
     raise NotImplementedError
   end
