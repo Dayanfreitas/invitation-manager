@@ -106,4 +106,26 @@ RSpec.describe CompaniesController, type: :controller do
       expect(response).to have_http_status(:unprocessable_entity)
     end
   end
+
+  context "DELETE #destroy" do
+    it "should success delete company" do
+      company = FactoryBot.create(:company)
+      delete :destroy, params: { id: company.id }
+
+      expect(response).to have_http_status(:success)
+    end
+
+    it "should return company deleted" do
+      company = FactoryBot.create(:company)
+      delete :destroy, params: { id: company.id }
+
+      expect(assigns(:company)).to eq(company)
+    end
+
+    it "should not delete company" do
+      delete :destroy, params: { id: 0 }
+
+      expect(response).to have_http_status(404)
+    end
+  end
 end
