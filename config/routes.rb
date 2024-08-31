@@ -19,5 +19,6 @@ Rails.application.routes.draw do
   end
 
   resources :companies
+  resources :invitations
   root to: 'home#index'
 end
