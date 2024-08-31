@@ -1,3 +1,27 @@
-example_id                      | status  | run_time        |
-------------------------------- | ------- | --------------- |
-./spec/models/item_spec.rb[1:1] | pending | 0.00002 seconds |
+example_id                                            | status  | run_time        |
+----------------------------------------------------- | ------- | --------------- |
+./spec/controller/companies_controller_spec.rb[1:1:1] | passed  | 0.19958 seconds |
+./spec/controller/companies_controller_spec.rb[1:1:2] | passed  | 0.00396 seconds |
+./spec/controller/companies_controller_spec.rb[1:1:3] | passed  | 0.01857 seconds |
+./spec/controller/companies_controller_spec.rb[1:1:4] | passed  | 0.00558 seconds |
+./spec/controller/companies_controller_spec.rb[1:2:1] | passed  | 0.00654 seconds |
+./spec/controller/companies_controller_spec.rb[1:2:2] | passed  | 0.00638 seconds |
+./spec/controller/companies_controller_spec.rb[1:2:3] | passed  | 0.00403 seconds |
+./spec/controller/companies_controller_spec.rb[1:2:4] | passed  | 0.00314 seconds |
+./spec/controller/companies_controller_spec.rb[1:3:1] | passed  | 0.00785 seconds |
+./spec/controller/companies_controller_spec.rb[1:3:2] | passed  | 0.00541 seconds |
+./spec/controller/companies_controller_spec.rb[1:3:3] | passed  | 0.00345 seconds |
+./spec/controller/companies_controller_spec.rb[1:4:1] | passed  | 0.00806 seconds |
+./spec/controller/companies_controller_spec.rb[1:4:2] | passed  | 0.00706 seconds |
+./spec/controller/companies_controller_spec.rb[1:4:3] | passed  | 0.00625 seconds |
+./spec/controller/companies_controller_spec.rb[1:4:4] | passed  | 0.00669 seconds |
+./spec/controller/companies_controller_spec.rb[1:5:1] | passed  | 0.00559 seconds |
+./spec/controller/companies_controller_spec.rb[1:5:2] | passed  | 0.00746 seconds |
+./spec/controller/companies_controller_spec.rb[1:5:3] | passed  | 0.00352 seconds |
+./spec/models/item_spec.rb[1:1]                       | pending | 0.00002 seconds |
+./spec/routing/companies_routing_spec.rb[1:1:1]       | passed  | 0.00459 seconds |
+./spec/routing/companies_routing_spec.rb[1:1:2]       | passed  | 0.00132 seconds |
+./spec/routing/companies_routing_spec.rb[1:1:3]       | passed  | 0.00102 seconds |
+./spec/routing/companies_routing_spec.rb[1:1:4]       | passed  | 0.00093 seconds |
+./spec/routing/companies_routing_spec.rb[1:1:5]       | passed  | 0.00089 seconds |
+./spec/routing/companies_routing_spec.rb[1:1:6]       | passed  | 0.00089 seconds |
