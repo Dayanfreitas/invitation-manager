@@ -55,4 +55,25 @@ RSpec.describe CompaniesController, type: :controller do
       expect(response).to have_http_status(404)
     end
   end
+
+  context "POST #create" do 
+    it "should success create company" do
+      post :create, params: { company: { name: "Company 1" } }
+
+      expect(response).to have_http_status(:created)
+    end
+
+    it "should return company" do
+      post :create, params: { company: { name: "Company 1" } }
+
+      expect(assigns(:company)).to be_a(Company)
+      expect(assigns(:company)).to be_persisted
+    end
+
+    it "should not create company" do
+      post :create, params: { company: { name: "" } }
+
+      expect(response).to have_http_status(:unprocessable_entity)
+    end
+  end
 end
