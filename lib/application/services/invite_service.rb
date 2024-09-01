@@ -29,10 +29,21 @@ class InviteService < BaseService
 
   def send_invitation(invitation:)
     GuestMailer.welcome_email(invitation: invitation).deliver_now
+    invitation.sent!
   end
 
   def search_users_by_email(email)
     users_service.find_by_email(email)
+  end
+  
+  def find_invitation_by_token_sent(token)
+    qb = InviteQueryBuilder.new
+    qb.with_status(Invitation::Status::SENT)
+    qb.with_token(token)
+
+    filter = qb.build
+
+    @repository.get_all(filter: filter).first
   end
 
   private

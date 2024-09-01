@@ -19,10 +19,6 @@ class InvitationRepository < BaseRepository
     @model.find_by_id(id)
   end
 
-  def find_by_email(email)
-    @model.find_by_email(email)
-  end
-
   def get_all(filter: {})    
     @model
       .select("*")

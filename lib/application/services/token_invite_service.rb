@@ -9,7 +9,8 @@ class TokenInviteService
     found_token = find_invitation_by_token_sent(token)
 
     return false unless found_token.present?
-
+    
+    found_token.accepted!
     found_token
   end
 

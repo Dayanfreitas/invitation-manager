@@ -118,5 +118,30 @@ RSpec.describe InvitationRepository, type: :repository do
       end
     end
   end
-  
+
+  describe '#get_all' do
+    before(:each) do
+      Invitation.destroy_all
+    end
+    
+    context 'when there are objects' do
+      subject { InvitationRepository.new }
+
+      it 'should return all objects' do
+        create(:invitation)
+        create(:invitation)
+        create(:invitation)
+
+
+        expect(subject.get_all.count).to eq(3)
+      end
+    end
+    context 'when there are not objects' do
+      subject { InvitationRepository.new }
+
+      it 'should return an empty array' do
+        expect(subject.get_all.count).to eq(0)
+      end
+    end
+  end
 end
