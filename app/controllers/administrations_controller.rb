@@ -38,7 +38,6 @@ class AdministrationsController < ApplicationController
     end
 
     def user_params
-      byebug
       params.permit(:email)
     end
 end
