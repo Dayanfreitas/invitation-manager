@@ -15,13 +15,7 @@ class InviteService < BaseService
       token: TokenInviteService.generate_token
     }
 
-    invitation = create(attributes: attributes_invitation)
-    
-    return invitation unless invitation.valid?
-
-    send_invitation(invitation: invitation)
-    
-    return invitation
+    create(attributes: attributes_invitation)
   end
 
   def create(attributes: {})
@@ -51,16 +45,15 @@ class InviteService < BaseService
     @repository.get_all(filter: filter).first
   end
 
-  def new_instance
+  def new_instance(current_user:)
     instance = @repository.new_instance
-    instance.company_id = 2
+    instance.company_id = current_user.company.id
     instance.status = Invitation::Status::PENDING
     instance.invited_at = Time.now
     instance
   end
 
   def find(id)
-    # InviteQueryBuilder.new.with_id(id).build
     @repository.get_all(filter: { id: id }).first
   end
 

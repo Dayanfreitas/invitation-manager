@@ -9,7 +9,7 @@ class InvitationsController < ApplicationController
   end
 
   def new
-    @invitation = invite_service.new_instance
+    @invitation = invite_service.new_instance(current_user: current_user)
   end
 
   def edit; end
@@ -20,11 +20,11 @@ class InvitationsController < ApplicationController
       company_id: invitation_params[:company_id]
     )
 
-    if @invitation.present?
+    if @invitation.present? && @invitation.valid?
+      invite_service.send_invitation(invitation: @invitation)
       redirect_to @invitation, notice: "Invitation was successfully created."
     else
-      @invitation = invite_service.new_instance
-      @errors = ["Email already invited"]
+      @invitation = @invitation == false ? invite_service.new_instance(current_user: current_user) : @invitation
       render :new, status: :unprocessable_entity
     end
   end

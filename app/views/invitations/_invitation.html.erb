@@ -7,6 +7,9 @@
   <p>
     <strong>User:</strong>
     <%= invitation.user_id %>
+    <p>
+      <%= invitation.user.email %>
+    </p>
   </p>
 
   <p>
@@ -17,6 +20,11 @@
   <p>
     <strong>Invited at:</strong>
     <%= invitation.invited_at %>
+  </p>
+
+  <p>
+    <strong>token:</strong>
+    <%= invitation.token %>
   </p>
 
 </div>

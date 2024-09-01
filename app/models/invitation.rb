@@ -15,6 +15,8 @@ class Invitation < ApplicationRecord
   validates :status, presence: true
   validates :token, presence: true, uniqueness: true
 
+  validates :user_id, uniqueness: { scope: :company_id, message: "já foi convidado por esta empresa." }
+
   def sent!
     update(status: Status::SENT)
   end
