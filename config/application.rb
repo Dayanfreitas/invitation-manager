@@ -24,6 +24,7 @@ module Www
     # Skip views, helpers and assets when generating a new resource.
     # config.api_only = true
     config.autoload_paths += [
+      config.root.join('lib', 'application', 'query_builder').to_s,
       config.root.join('lib', 'application', 'repository').to_s,
       config.root.join('lib', 'application', 'services').to_s,
     ]
