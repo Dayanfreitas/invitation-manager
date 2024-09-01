@@ -24,4 +24,8 @@ class InvitationRepository < BaseRepository
       .select("*")
       .where(filter)
   end
+
+  def new_instance
+    @model.new
+  end
 end

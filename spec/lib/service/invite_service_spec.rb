@@ -38,10 +38,25 @@ RSpec.describe InviteService, type: :service do
       end
     end
     context 'when attributes is invalid' do
+      it 'should return object Invitation invalid' do
+        invitation = build(:invitation, company: nil)
+
+        expect(subject.create(attributes: invitation.attributes).valid?).to be_falsey
+      end
       it 'should return object Invitation' do
         invitation = build(:invitation, company: nil)
 
-        expect(subject.create(attributes: invitation.attributes)).to be_falsey
+        expect(subject.create(attributes: invitation.attributes)).to be_a(Invitation)
+      end
+    end
+  end
+
+  describe '#update' do
+    context 'when attributes is valid' do
+      it 'should return object Invitation' do
+        invitation = create(:invitation)
+        
+        expect(subject.update(id: invitation.id, attributes: { status: 'accepted' })).to be_truthy
       end
     end
   end

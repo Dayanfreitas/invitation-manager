@@ -5,7 +5,6 @@ class InviteService < BaseService
 
   def create_invitation(email:, company_id:)
     user = users_service.find_or_create_user(email)
-    
     return false unless user.present?
 
     attributes_invitation = {
@@ -17,14 +16,20 @@ class InviteService < BaseService
     }
 
     invitation = create(attributes: attributes_invitation)
-    send_invitation(invitation: invitation) if invitation.present?
+    
+    return invitation unless invitation.valid?
+
+    send_invitation(invitation: invitation)
     
     return invitation
   end
 
   def create(attributes: {})
-    object = @repository.create(attributes: attributes)
-    object.valid? ? object : false
+    @repository.create(attributes: attributes)
+  end
+
+  def update(id: nil, attributes: {})
+    @repository.update(id: id, attributes: attributes)
   end
 
   def send_invitation(invitation:)
@@ -44,6 +49,27 @@ class InviteService < BaseService
     filter = qb.build
 
     @repository.get_all(filter: filter).first
+  end
+
+  def new_instance
+    instance = @repository.new_instance
+    instance.company_id = 2
+    instance.status = Invitation::Status::PENDING
+    instance.invited_at = Time.now
+    instance
+  end
+
+  def find(id)
+    # InviteQueryBuilder.new.with_id(id).build
+    @repository.get_all(filter: { id: id }).first
+  end
+
+  def all_invitations
+    @repository.get_all(filter: {})
+  end
+
+  def destroy(id)
+    @repository.destroy(id)
   end
 
   private
