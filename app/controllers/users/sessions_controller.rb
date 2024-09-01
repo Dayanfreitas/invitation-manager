@@ -5,10 +5,13 @@ class Users::SessionsController < Devise::SessionsController
 
   # GET /resource/sign_in
   def new
-    # TODO: refactor this check to a service
     @token = params[:invitation_token]
-    if @token.present? && Invitation.find_by(token: @token)&.user&.email.present?
-      sign_in(Invitation.find_by(token: @token)&.user)
+    if @token.present?
+      @token_valid = TokenInviteService.new.valid_token_sent?(@token)
+
+      return redirect_to not_found_path unless @token_valid.present?
+      
+      sign_in(TokenInviteService.new.valid_token_sent?(@token).user)
       return redirect_to root_path
     end
    

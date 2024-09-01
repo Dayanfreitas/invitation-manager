@@ -22,5 +22,8 @@ Rails.application.routes.draw do
 
   resources :companies
   resources :invitations
+  
+  get 'not_found', to: 'errors#not_found'
+
   root to: 'home#index'
 end

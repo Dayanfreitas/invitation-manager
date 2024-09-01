@@ -22,4 +22,10 @@ class InvitationRepository < BaseRepository
   def find_by_email(email)
     @model.find_by_email(email)
   end
+
+  def get_all(filter: {})    
+    @model
+      .select("*")
+      .where(filter)
+  end
 end

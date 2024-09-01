@@ -61,4 +61,19 @@ RSpec.describe InviteService, type: :service do
       end
     end
   end
+
+  describe "#find_invitation_by_token_sent" do
+    context "when invitation is found" do
+      it "should return object Invitation" do
+        invitation = create(:invitation, status: Invitation::Status::SENT)
+  
+        expect(subject.find_invitation_by_token_sent(invitation.token)).to eq(invitation)
+      end
+    end
+    context "when invitation is not found" do
+      it "should return nil" do
+        expect(subject.find_invitation_by_token_sent("")).to eq(nil)
+      end
+    end
+  end
 end
