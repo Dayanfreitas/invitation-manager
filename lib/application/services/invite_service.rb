@@ -16,7 +16,10 @@ class InviteService < BaseService
       token: TokenInviteService.generate_token
     }
 
-    return create(attributes: attributes_invitation)    
+    invitation = create(attributes: attributes_invitation)
+    send_invitation(invitation: invitation) if invitation.present?
+    
+    return invitation
   end
 
   def create(attributes: {})
@@ -24,8 +27,8 @@ class InviteService < BaseService
     object.valid? ? object : false
   end
 
-  def send_invitation
-    raise NotImplementedError
+  def send_invitation(invitation:)
+    GuestMailer.welcome_email(invitation: invitation).deliver_now
   end
 
   def search_users_by_email(email)
