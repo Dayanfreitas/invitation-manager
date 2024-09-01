@@ -8,7 +8,7 @@ class CompaniesController < ApplicationController
   def show; end
 
   def edit
-    @company = Company.find(params[:id])
+    @company = companies_service.find(params[:id])
   end
 
   def new
@@ -16,34 +16,39 @@ class CompaniesController < ApplicationController
   end
 
   def create
-    @company = Company.new(company_params)
-
-    if @company.save
-      render json: @company, status: :created, location: @company
+    @company = companies_service.create(attributes: company_params)
+    if @company.persisted?
+      redirect_to @company, notice: "Company was successfully created."
     else
-      render json: @company.errors, status: :unprocessable_entity
+      render :new, status: :unprocessable_entity
     end
   end
 
   def update
-    if @company.update(company_params)
-      render json: @company
+    attributes = { name: company_params[:name] }
+    if companies_service.update(id: @company.id, attributes: attributes) 
+      redirect_to @company, notice: "Company was successfully updated.", status: :see_other
     else
-      render json: @company.errors, status: :unprocessable_entity
+      render :edit, status: :unprocessable_entity
     end
   end
 
   def destroy
-    @company.destroy
+    companies_service.destroy(@company.id)
+    redirect_to companies_url, notice: "Company was successfully destroyed.", status: :see_other
   end
 
   private
 
     def set_company
-      @company = Company.find(params[:id])
+      @company = companies_service.find(params[:id])      
     end
 
     def company_params
       params.require(:company).permit(:name)
+    end
+
+    def companies_service
+      CompaniesService.new(CompaniesRepository.new)
     end
 end
