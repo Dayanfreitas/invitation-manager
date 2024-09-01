@@ -18,7 +18,6 @@ services:
       - 3000:3000
       - 1080:1080
       - 1025:1025
-      
     volumes:
       - .:/var/www
       - .bundle:/usr/local/bundle
