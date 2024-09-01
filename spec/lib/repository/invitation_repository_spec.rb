@@ -120,10 +120,6 @@ RSpec.describe InvitationRepository, type: :repository do
   end
 
   describe '#get_all' do
-    before(:each) do
-      Invitation.destroy_all
-    end
-    
     context 'when there are objects' do
       subject { InvitationRepository.new }
 
