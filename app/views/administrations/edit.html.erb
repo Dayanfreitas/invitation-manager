@@ -1,0 +1,10 @@
+<h1>Editing invitation</h1>
+
+<%= render "form", administrator: @administrator %>
+
+<br>
+
+<div>
+  <%= link_to "Show this invitation", administration_path(id: @administrator.id) %> |
+  <%= link_to "Back to invitations", administrations_path %>
+</div>

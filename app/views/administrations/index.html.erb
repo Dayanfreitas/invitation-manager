@@ -1,0 +1,14 @@
+<p style="color: green"><%= notice %></p>
+
+<h1>Administrators</h1>
+
+<div id="invitations">
+  <% @administrators.each do |administrator| %>
+    <%= render 'administrator', administrator: administrator %>
+    <p>
+      <%= link_to "Show this administrator", administration_path(id: administrator.id) %>
+    </p>
+  <% end %>
+</div>
+
+<%= link_to "New administrator", new_administration_path %>

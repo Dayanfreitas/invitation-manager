@@ -20,6 +20,7 @@ Rails.application.routes.draw do
     end
   end
 
+  resources :administrations
   resources :companies
   resources :invitations
   

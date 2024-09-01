@@ -1,0 +1,11 @@
+<p style="color: green"><%= notice %></p>
+
+
+<%= render 'administrator', administrator: @administrator %>
+    
+<div>
+  <%= link_to "Edit this invitation", edit_administration_path(id: @administrator.id) %> |
+  <%= link_to "Back to invitations", administrations_path %>
+
+  <%= button_to "Destroy this invitation", administration_path(id: @administrator.id), method: :delete %>
+</div>
