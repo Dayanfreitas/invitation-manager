@@ -23,6 +23,12 @@ module Www
     # Middleware like session, flash, cookies can be added back manually.
     # Skip views, helpers and assets when generating a new resource.
     # config.api_only = true
+    config.autoload_paths += [
+      config.root.join('lib', 'application', 'query_builder').to_s,
+      config.root.join('lib', 'application', 'repository').to_s,
+      config.root.join('lib', 'application', 'services').to_s,
+    ]
+    
     config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
     
     config.session_store :cookie_store, key: 'app-invitation-manager'

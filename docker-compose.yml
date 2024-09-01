@@ -16,10 +16,13 @@ services:
     container_name: 'app-invitation-manager'
     ports:
       - 3000:3000
+      - 1080:1080
+      - 1025:1025
     volumes:
       - .:/var/www
       - .bundle:/usr/local/bundle
     tty: true
+    stdin_open: true
     depends_on:
       - db
 

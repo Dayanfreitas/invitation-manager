@@ -1,6 +1,6 @@
 ENV["RAILS_ENV"] = 'test'
 require 'shoulda/matchers'
-
+require 'support/database_cleaner.rb'
 require 'support/factory_bot.rb'
 require 'support/rspec-rails'
 require 'support/simplecov'

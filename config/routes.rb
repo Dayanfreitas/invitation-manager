@@ -6,7 +6,7 @@ Rails.application.routes.draw do
     }, 
     controllers: {
       sessions: 'users/sessions', 
-      registration: 'users/registrations'
+      registrations: 'users/registrations'
     }
 
   devise_scope :user do
@@ -15,9 +15,15 @@ Rails.application.routes.draw do
 
   namespace :api, defaults: { format: :json } do
     namespace :v1 do
+      resources :users, only: [:index]
+      resources :invitations, only: [:create]
     end
   end
 
   resources :companies
+  resources :invitations
+  
+  get 'not_found', to: 'errors#not_found'
+
   root to: 'home#index'
 end
