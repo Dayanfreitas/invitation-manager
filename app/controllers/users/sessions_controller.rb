@@ -11,7 +11,7 @@ class Users::SessionsController < Devise::SessionsController
 
       return redirect_to not_found_path unless @token_valid.present?
       
-      sign_in(TokenInviteService.new.valid_token_sent?(@token).user)
+      sign_in(@token_valid.user)
       return redirect_to root_path
     end
    
