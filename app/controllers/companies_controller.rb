@@ -12,7 +12,7 @@ class CompaniesController < ApplicationController
   end
 
   def new
-    @company = Company.new
+    @company = companies_service.new_instance
   end
 
   def create
@@ -37,7 +37,7 @@ class CompaniesController < ApplicationController
     companies_service.destroy(@company.id)
     redirect_to companies_url, notice: "Company was successfully destroyed.", status: :see_other
   end
-
+  
   private
 
     def set_company

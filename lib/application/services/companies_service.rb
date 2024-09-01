@@ -18,4 +18,8 @@ class CompaniesService < BaseService
   def find(id)
     @repository.find(id)
   end
+
+  def new_instance
+    @repository.new_instance
+  end
 end
