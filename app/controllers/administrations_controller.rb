@@ -1,7 +1,7 @@
 class AdministrationsController < ApplicationController
   before_action :set_administrations, only: %i[ show edit update destroy ]
 
-  def index; 
+  def index
     @administrators = users_service.get_all(filter: {})
   end
 
@@ -17,14 +17,13 @@ class AdministrationsController < ApplicationController
 
     @administrator = users_service.create_admin(attributes: attributes)  
     if @administrator.persisted?
-      redirect_to administrations_path
+      redirect_to administrations_path, notice: I18n.t('controller.users.create.success'), status: :see_other
     else
       render :new, status: :unprocessable_entity
     end
   end
 
-  def show 
-  end
+  def show; end
 
   def update
     attributes = {
@@ -33,7 +32,7 @@ class AdministrationsController < ApplicationController
     @administrator_updated = users_service.update(id: @administrator.id, attributes: attributes)
     
     if @administrator_updated
-      redirect_to edit_administration_path(id: @administrator.id), notice: 'Administrator was successfully updated.', status: :see_other
+      redirect_to edit_administration_path(id: @administrator.id), notice: I18n.t('controller.users.update.success'), status: :see_other
     else
       render :new, status: :unprocessable_entity
     end
@@ -44,7 +43,7 @@ class AdministrationsController < ApplicationController
 
   def destroy
     users_service.destroy(@administrator.id)
-    redirect_to administrations_path, notice: 'Administrator was successfully destroyed.'
+    redirect_to administrations_path, notice: I18n.t('controller.users.destroy.success')
   end
 
   private 
