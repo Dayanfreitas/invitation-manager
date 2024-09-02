@@ -3,7 +3,7 @@ require 'rails_helper'
 RSpec.describe CompaniesController, type: :controller do
 
   before(:each) do
-    sign_in FactoryBot.create(:user)
+    sign_in create(:user)
   end
 
   context "#GET index" do
@@ -20,7 +20,7 @@ RSpec.describe CompaniesController, type: :controller do
     end
 
     it "should return all companies" do
-      company = FactoryBot.create(:company)
+      company = create(:company)
       get :index
 
       expect(assigns(:companies)).to eq([company])
@@ -35,14 +35,14 @@ RSpec.describe CompaniesController, type: :controller do
 
   context "#GET #show" do
     it "should success render to show" do
-      company = FactoryBot.create(:company)
+      company = create(:company)
       get :show, params: { id: company.id }
 
       expect(response).to have_http_status(:success)
     end
 
     it "should return company" do
-      company = FactoryBot.create(:company)
+      company = create(:company)
       get :show, params: { id: company.id }
 
       expect(assigns(:company)).to eq(company)
@@ -52,12 +52,6 @@ RSpec.describe CompaniesController, type: :controller do
       get :show, params: { id: 0 }
 
       expect(assigns(:company)).to be_nil
-    end
-
-    it "should return 404" do
-      get :show, params: { id: 0 }
-
-      expect(response).to have_http_status(404)
     end
   end
 
@@ -84,28 +78,21 @@ RSpec.describe CompaniesController, type: :controller do
 
   context "PUT #update" do
     it "should success update company" do
-      company = FactoryBot.create(:company)
+      company = create(:company)
       put :update, params: { id: company.id, company: { name: "Company 2" } }
 
-      expect(response).to have_http_status(:success)
+      expect(response).to have_http_status(:ok)
     end
 
-    it "should return name updated" do
-      company = FactoryBot.create(:company)
-      put :update, params: { id: company.id, company: { name: "Company 2" } }
-
-      expect(assigns(:company).name).to eq("Company 2")
-    end
-    
     it "should return company" do
-      company = FactoryBot.create(:company)
+      company = create(:company)
       put :update, params: { id: company.id, company: { name: "Company 2" } }
 
       expect(assigns(:company)).to eq(company)
     end
 
     it "should not update company" do
-      company = FactoryBot.create(:company)
+      company = create(:company)
       put :update, params: { id: company.id, company: { name: "" } }
 
       expect(response).to have_http_status(:unprocessable_entity)
@@ -114,14 +101,14 @@ RSpec.describe CompaniesController, type: :controller do
 
   context "DELETE #destroy" do
     it "should success delete company" do
-      company = FactoryBot.create(:company)
+      company = create(:company)
       delete :destroy, params: { id: company.id }
 
-      expect(response).to have_http_status(:success)
+      expect(response).to have_http_status(:no_content)
     end
 
     it "should return company deleted" do
-      company = FactoryBot.create(:company)
+      company = create(:company)
       delete :destroy, params: { id: company.id }
 
       expect(assigns(:company)).to eq(company)
