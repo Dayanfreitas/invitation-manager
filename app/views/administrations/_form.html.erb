@@ -12,16 +12,16 @@
   <% end %>
 
   <div>
-    <%= form.label :email, style: "display: block" %>
+    <%= form.label I18n.t("views.admin.form.fields.email"), style: "display: block" %>
     <%= form.text_field :email, value: administrator.email %>
   </div>
 
   <div class="field">
-    <%= form.label :password, style: "display: block" %>
+    <%= form.label I18n.t("views.admin.form.fields.password"), style: "display: block" %>
     <%= form.password_field :password, autocomplete: "new-password" %>
   </div>
 
   <div>
-    <%= form.submit %>
+    <%= form.submit I18n.t("views.common.submit") %>
   </div>
 <% end %>

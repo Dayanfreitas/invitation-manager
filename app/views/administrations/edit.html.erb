@@ -1,10 +1,12 @@
-<h1>Editing invitation</h1>
+<h1>
+<%= I18n.t('views.admin.edit') %>
+</h1>
 
 <%= render "form", administrator: @administrator %>
 
 <br>
 
 <div>
-  <%= link_to "Show this invitation", administration_path(id: @administrator.id) %> |
-  <%= link_to "Back to invitations", administrations_path %>
+  <%= link_to I18n.t('views.admin.show'), administration_path(id: @administrator.id) %> |
+  <%= link_to I18n.t('views.common.back'), administrations_path %>
 </div>

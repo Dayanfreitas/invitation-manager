@@ -1,0 +1,38 @@
+pt-BR:  
+  views:
+    common:
+      logout: "Sair"
+      submit: "Enviar"
+      back: "Voltar"
+      
+    login: 
+      title: "Login"
+      fields:
+        email: "Email"
+        password: "Senha"
+      log_in: "Login"
+      remember-me: "Lembrar-me"
+    
+    shared:
+      registrations: "Registe-se"
+
+    home:
+      title: "Home"
+      welcome: "Seja bem-vindo ao sistema de convites"
+      navigation:
+        home: "Home"
+        admin: "Administradores"
+        company: "Empresas"
+        invitations: "Convites"
+
+    admin:
+      title: "Administradores"
+      show: "Visualizar administrador"
+      new: "Adicionar administrador"
+      edit: "Editar administrador"
+      delete: "Deletar administrador"
+      form:
+        fields:
+          email: "Email"
+          password: "Senha"
+    
