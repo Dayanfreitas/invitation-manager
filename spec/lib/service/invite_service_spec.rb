@@ -24,7 +24,7 @@ RSpec.describe InviteService, type: :service do
     end
     context 'when email invalid' do
       it 'should return false' do
-        expect(subject.create_invitation(email: "", company_id: 1)).to be_falsey
+        expect(subject.create_invitation(email: "", company_id: 1).valid?).to be_falsey
       end
     end
   end

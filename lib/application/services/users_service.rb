@@ -15,6 +15,10 @@ class UsersService < BaseService
     @repository.update(id: id, attributes: attributes)
   end
 
+  def find(id)
+    @repository.find(id)
+  end
+  
   def destroy(id)
     @repository.destroy(id)
   end
@@ -34,9 +38,7 @@ class UsersService < BaseService
       password: SecureRandom.hex(10)
     }
 
-    object = create(attributes: attributes)
-
-    object.valid? ? object : false
+    create(attributes: attributes) 
   end
 
   def find_by_email(email)

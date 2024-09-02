@@ -5,7 +5,6 @@ class InviteService < BaseService
 
   def create_invitation(email:, company_id:)
     user = users_service.find_or_create_user(email)
-    return false unless user.present?
 
     attributes_invitation = {
       company_id: company_id,
@@ -47,7 +46,6 @@ class InviteService < BaseService
 
   def new_instance(current_user:)
     instance = @repository.new_instance
-    instance.company_id = current_user.company.id
     instance.status = Invitation::Status::PENDING
     instance.invited_at = Time.now
     instance

@@ -24,7 +24,6 @@ class InvitationsController < ApplicationController
       invite_service.send_invitation(invitation: @invitation)
       redirect_to @invitation, notice: "Invitation was successfully created."
     else
-      @invitation = @invitation == false ? invite_service.new_instance(current_user: current_user) : @invitation
       render :new, status: :unprocessable_entity
     end
   end
