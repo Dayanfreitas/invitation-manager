@@ -2,19 +2,24 @@ class AdministrationsController < ApplicationController
   before_action :set_administrations, only: %i[ show edit update destroy ]
 
   def index; 
-    @administrators = User.all
+    @administrators = users_service.get_all(filter: {})
   end
 
   def new
-    @administrator = User.new
+    @administrator = users_service.new_instance
   end
 
   def create
-    @administrator = User.new(user_params)
-    if @administrator.save
+    attributes ={
+      email: params[:email],
+      password: params[:password]
+    }
+
+    @administrator = users_service.create_admin(attributes: attributes)  
+    if @administrator.persisted?
       redirect_to administrations_path
     else
-      render :new
+      render :new, status: :unprocessable_entity
     end
   end
 
@@ -22,13 +27,24 @@ class AdministrationsController < ApplicationController
   end
 
   def update
+    attributes = {
+      email: user_params[:email]
+    }
+    @administrator_updated = users_service.update(id: @administrator.id, attributes: attributes)
+    
+    if @administrator_updated
+      redirect_to edit_administration_path(id: @administrator.id), notice: 'Administrator was successfully updated.', status: :see_other
+    else
+      render :new, status: :unprocessable_entity
+    end
   end
 
   def edit
   end
 
   def destroy
-  
+    users_service.destroy(@administrator.id)
+    redirect_to administrations_path, notice: 'Administrator was successfully destroyed.'
   end
 
   private 
@@ -39,5 +55,9 @@ class AdministrationsController < ApplicationController
 
     def user_params
       params.permit(:email)
+    end
+
+    def users_service
+      @users_service ||= UsersService.new(UsersRepository.new)
     end
 end

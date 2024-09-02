@@ -2,7 +2,11 @@ class UsersRepository < BaseRepository
   def initialize
     super(User)
   end
-
+  
+  def all
+    @model.all
+  end
+  
   def create(attributes: {})
     @model.create(attributes)
   end

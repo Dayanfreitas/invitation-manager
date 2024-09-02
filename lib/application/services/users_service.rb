@@ -3,18 +3,38 @@ class UsersService < BaseService
     super(repository)
   end
 
+  def get_all(filter: {})
+    @repository.all
+  end
+  
+  def create(attributes:)
+    @repository.create(attributes: attributes)
+  end
+  
+  def update(id:, attributes:)
+    @repository.update(id: id, attributes: attributes)
+  end
+
+  def destroy(id)
+    @repository.destroy(id)
+  end
+
+  def create_admin(attributes:)
+    user_admin = Admin.new(attributes: attributes).build
+    @repository.create(attributes: user_admin)
+  end
+
   def find_or_create_user(email)
     user = find_by_email(email)
     
     return user if user.present?
-    # @model.new(build_guest(email))
 
     attributes = {
       email: email,
       password: SecureRandom.hex(10)
     }
 
-    object = @repository.create(attributes: attributes)
+    object = create(attributes: attributes)
 
     object.valid? ? object : false
   end
@@ -23,31 +43,29 @@ class UsersService < BaseService
     @repository.find_by_email(email)
   end
 
-    
+  def new_instance
+    @repository.model.new(
+      Admin.new.build
+    )
+  end
+  
   class Guest
-    # TODO: Implement the Guest class
-    def initialize(user:)
-      @user = user
+    def initialize(attributes: {})
+      @attributes = attributes
     end
-    
+
     def build
-      @user = @user.dup
-      # @user.token_invite = SecureRandom.hex
-      @user.attributes
+      @attributes
     end
   end
 
   class Admin
-    # TODO: Implement the Admin class
-
-    def initialize(user:)
-      @user = user
+    def initialize(attributes: {})
+      @attributes = attributes
     end
 
     def build
-      @user = @user.dup
-      # @user.admin = 'admin'
-      @user.attributes
+      @attributes
     end
   end
 end

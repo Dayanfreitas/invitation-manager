@@ -1,4 +1,4 @@
-<%= form_with(url: administrations_path, method: :post) do |form| %>  
+<%= form_with(url: @administrator.new_record? ? administrations_path : administration_path(@administrator), method: @administrator.new_record? ? :post : :patch) do |form| %>  
   <% if administrator.errors.any? %>
     <div style="color: red">
       <h2><%= pluralize(administrator.errors.count, "error") %> prohibited this administrator from being saved:</h2>
@@ -14,6 +14,11 @@
   <div>
     <%= form.label :email, style: "display: block" %>
     <%= form.text_field :email, value: administrator.email %>
+  </div>
+
+  <div class="field">
+    <%= form.label :password, style: "display: block" %>
+    <%= form.password_field :password, autocomplete: "new-password" %>
   </div>
 
   <div>

@@ -1,5 +1,5 @@
 <h1>Home - </h1>
-<p>Seja bem-vindo ao sistema de convites da <%= @company.name %></p>
+<p>Seja bem-vindo ao sistema de convites</p>
 
 
 <%= link_to 'Logout', logout_path, method: :delete %>
@@ -7,7 +7,7 @@
 <nav>
   <ul>
     <li><%= link_to 'Home', root_path %></li>
-    <li><%= link_to 'Admins', root_path %></li>
+    <li><%= link_to 'Admins', administrations_path %></li>
     <li><%= link_to 'Companies', companies_path %></li>
     <li><%= link_to 'Convites', invitations_path %></li>
   </ul>
