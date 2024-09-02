@@ -21,7 +21,7 @@ class InvitationsController < ApplicationController
 
     if @invitation.present? && @invitation.valid?
       invite_service.send_invitation(invitation: @invitation)
-      redirect_to @invitation, notice: "Invitation was successfully created."
+      redirect_to @invitation, notice: I18n.t('controller.invitations.create.success'), status: :see_other
     else
       render :new, status: :unprocessable_entity
     end
@@ -29,7 +29,7 @@ class InvitationsController < ApplicationController
 
   def update
     if invite_service.update(id: @invitation.id, attributes: invitation_params)
-      redirect_to @invitation, notice: "Invitation was successfully updated.", status: :see_other
+      redirect_to @invitation, notice: I18n.t('controller.invitations.update.success'), status: :see_other
     else
       render :edit, status: :unprocessable_entity
     end
@@ -37,7 +37,7 @@ class InvitationsController < ApplicationController
 
   def destroy
     invite_service.destroy(@invitation.id)
-    redirect_to invitations_url, notice: "Invitation was successfully destroyed.", status: :see_other
+    redirect_to invitations_url, notice: I18n.t('controller.invitations.destroy.success'), status: :see_other
   end
 
   private
