@@ -16,6 +16,37 @@ en:
             password:
               blank: "cannot be blank"
               too_short: "must have at least %{count} characters"
+  controller:
+    users:
+      create:
+        success: "User was successfully created."
+        failure: "User could not be created."
+      update:
+        success: "User was successfully updated."
+        failure: "User could not be updated."
+      destroy:
+        success: "User was successfully destroyed."
+        failure: "User could not be destroyed."
+    companies:
+      create:
+        success: "Company was successfully created."
+        failure: "Company could not be created."
+      update:
+        success: "Company was successfully updated."
+        failure: "Company could not be updated."
+      destroy:
+        success: "Company was successfully destroyed."
+        failure: "Company could not be destroyed."
+    invitations:
+      create:
+        success: "Invitation was successfully created."
+        failure: "Invitation could not be created."
+      update:
+        success: "Invitation was successfully updated."
+        failure: "Invitation could not be updated."
+      destroy:
+        success: "Invitation was successfully destroyed."
+        failure: "Invitation could not be destroyed."
 
   views:
     common:

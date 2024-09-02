@@ -16,7 +16,37 @@ pt-BR:
             password:
               blank: "não pode ficar em branco"
               too_short: "deve ter no mínimo %{count} caracteres"
-
+  controller:
+    users:
+      create:
+        success: "Usuario foi criado com sucesso."
+        failure: "Usuario não pode ser criado."
+      update:
+        success: "Usuario foi atualizado com sucesso."
+        failure: "Usuario não pode ser atualizado."
+      destroy:
+        success: 'Usuario foi destruido com sucesso.'
+        failure: 'Usuario não pode ser destruido.'
+    companies:
+      create:
+        success: "Empresa foi criada com sucesso."
+        failure: "Empresa não pode ser criada."
+      update:
+        success: "Empresa foi atualizada com sucesso."
+        failure: "Empresa não pode ser atualizada."
+      destroy:
+        success: "Empresa foi destruida com sucesso."
+        failure: "Empresa não pode ser destruida."
+    invitations:
+      create:
+        success: "Convite foi criado com sucesso."
+        failure: "Convite não pode ser criado."
+      update:
+        success: "Convite foi atualizado com sucesso."
+        failure: "Convite não pode ser atualizado."
+      destroy:
+        success: "Convite foi destruido com sucesso."
+        failure: "Convite não pode ser destruido."
   views:
     common:
       logout: "Sair"

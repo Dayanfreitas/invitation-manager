@@ -1,5 +1,15 @@
 
 <%= form_for @company do |f| %>
+  <% if @company.errors.any? %>
+    <div style="color: red">
+      <ul>
+        <% @company.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
   <div class="field">
     <%= f.label I18n.t('views.company.fields.name') %><br>
     <%= f.text_field :name %>

@@ -18,7 +18,7 @@ class CompaniesController < ApplicationController
   def create
     @company = companies_service.create(attributes: company_params)
     if @company.persisted?
-      redirect_to @company, notice: "Company was successfully created.", status: :created
+      redirect_to @company, notice: I18n.t('controller.companies.create.success'), status: :see_other
     else
       render :new, status: :unprocessable_entity
     end
@@ -27,7 +27,7 @@ class CompaniesController < ApplicationController
   def update
     attributes = { name: company_params[:name] }
     if companies_service.update(id: @company.id, attributes: attributes) 
-      redirect_to @company, notice: "Company was successfully updated.", status: :ok
+      redirect_to @company, notice: I18n.t('controller.companies.update.success'), status: :see_other
     else
       render :edit, status: :unprocessable_entity
     end
@@ -37,7 +37,7 @@ class CompaniesController < ApplicationController
     raise ActiveRecord::RecordNotFound unless @company.present?
     
     companies_service.destroy(@company.id)
-    redirect_to companies_url, notice: "Company was successfully destroyed.", status: :no_content
+    redirect_to companies_path, notice: I18n.t('controller.companies.destroy.success'), status: :see_other
   end
   
   private

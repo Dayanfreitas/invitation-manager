@@ -5,8 +5,7 @@ class InvitationsController < ApplicationController
     @invitations = invite_service.all_invitations
   end
 
-  def show
-  end
+  def show; end
 
   def new
     @invitation = invite_service.new_instance(current_user: current_user)
