@@ -54,6 +54,15 @@ pt-BR:
           email: "Email"
           password: "Senha"
 
+    company:
+      title: "Empresas"
+      show: "Visualizar empresa"
+      new: "Adicionar empresa"
+      edit: "Editar empresa"
+      delete: "Deletar empresa"
+      fields:
+        name: "Nome"
+
   errors:
     messages:
       blank: "não pode ficar em branco"

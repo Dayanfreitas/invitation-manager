@@ -52,6 +52,15 @@ en:
         fields:
           email: "Email"
           password: "Password"
+    
+    company:
+      title: "Company"
+      show: "Show company"
+      new: "New company"
+      edit: "Edit company"
+      delete: "Delete company"
+      fields:
+        name: "Name"
   errors:
     messages:
       blank: "cannot be blank"
