@@ -1,8 +1,6 @@
 <%= form_with(url: @administrator.new_record? ? administrations_path : administration_path(@administrator), method: @administrator.new_record? ? :post : :patch) do |form| %>  
   <% if administrator.errors.any? %>
     <div style="color: red">
-      <h2><%= pluralize(administrator.errors.count, "error") %> prohibited this administrator from being saved:</h2>
-
       <ul>
         <% administrator.errors.each do |error| %>
           <li><%= error.full_message %></li>

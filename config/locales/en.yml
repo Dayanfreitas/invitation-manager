@@ -1,4 +1,22 @@
 en:
+  activerecord:
+    models:
+      user: "User"
+    attributes:
+      user:
+        email: "Email"
+        password: "Password"
+    errors:
+      models:
+        user:
+          attributes:
+            email:
+              blank: "cannot be blank"
+              taken: "has already been taken"
+            password:
+              blank: "cannot be blank"
+              too_short: "must have at least %{count} characters"
+
   views:
     common:
       logout: "Logout"
@@ -34,5 +52,6 @@ en:
         fields:
           email: "Email"
           password: "Password"
-    
-    
+  errors:
+    messages:
+      blank: "cannot be blank"

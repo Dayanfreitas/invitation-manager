@@ -1,4 +1,22 @@
-pt-BR:  
+pt-BR:
+  activerecord:
+    models:
+      user: "Usuário"
+    attributes:
+      user:
+        email: "E-mail"
+        password: "Senha"
+    errors:
+      models:
+        user:
+          attributes:
+            email:
+              blank: "não pode ficar em branco"
+              taken: "já está em uso"
+            password:
+              blank: "não pode ficar em branco"
+              too_short: "deve ter no mínimo %{count} caracteres"
+
   views:
     common:
       logout: "Sair"
@@ -35,4 +53,7 @@ pt-BR:
         fields:
           email: "Email"
           password: "Senha"
-    
+
+  errors:
+    messages:
+      blank: "não pode ficar em branco"
