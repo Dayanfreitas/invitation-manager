@@ -3,6 +3,10 @@ class CompaniesService < BaseService
     super(repository)
   end
 
+  def get_all
+    @repository.get_all
+  end
+  
   def create(attributes:)
     @repository.create(attributes: attributes)
   end
