@@ -1,5 +1,4 @@
 json.data do 
-  byebug
   json.invite @data do |data|
     json.id data.id
     json.status data.status
