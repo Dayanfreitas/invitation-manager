@@ -2,7 +2,13 @@ class InvitationsController < ApplicationController
   before_action :set_invitation, only: %i[ show edit update destroy ]
 
   def index
-    @invitations = invite_service.all_invitations(filter: {})
+    @invitations = invite_service.all_invitations(filter: {
+      start_date: params[:start_date],
+      end_date: params[:end_date],
+      status: params[:status],
+      user: params[:user],
+      company: params[:company]
+    })
   end
 
   def show; end
