@@ -1,12 +1,11 @@
-class Api::V1::TokensController < ApplicationController
+class Api::V1::TokensController < ActionController::API
   def create
-    @user = User.find_by_email(user_params[:email])
-    # if @user&.authenticate(user_params[:password])
-    if @user.present?
-      render json: {
-        token: JsonWebToken.encode(user_id: @user.id),
-        email: @user.email
-      }, status: :ok
+    @user = User.find_by_email(user_params[:email]) 
+    
+    if @user.present? && @user&.valid_password?(user_params[:password])
+      @token = JwtService.encode(user_id: @user.id)
+      @status = 200
+      render 'api/v1/tokens/index', status: @status
     else
       head :unauthorized
     end
