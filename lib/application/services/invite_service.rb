@@ -22,6 +22,10 @@ class InviteService < BaseService
   end
 
   def update(id: nil, attributes: {})
+    if attributes[:status] == Invitation::Status::CANCELED
+      attributes[:inactivated_at] = Time.now
+    end
+    
     @repository.update(id: id, attributes: attributes)
   end
 
@@ -55,8 +59,31 @@ class InviteService < BaseService
     @repository.get_all(filter: { id: id }).first
   end
 
-  def all_invitations
-    @repository.get_all(filter: {})
+  def all_invitations(filter: {})
+    @invitations = @repository.get_all(filter: {})
+
+    if filter[:user].present?
+      @invitations = @invitations.joins(:user).where("users.email = ?", filter[:user])
+    end
+
+    if filter[:company].present?
+      @invitations = @invitations.joins(:company).where("companies.name = ?", filter[:company])
+    end
+
+    if filter[:status].present?
+      @invitations = @invitations.where(status: filter[:status])
+    end
+
+    if filter[:start_date].present? && filter[:end_date].present?
+      start_date = filter[:start_date]
+      end_date = filter[:end_date]
+
+      @invitations = @invitations.where(
+        "inactivated_at IS NULL OR inactivated_at > ?", end_date
+      )
+    end
+
+    @invitations
   end
 
   def destroy(id)

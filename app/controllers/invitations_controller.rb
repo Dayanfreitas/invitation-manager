@@ -2,7 +2,7 @@ class InvitationsController < ApplicationController
   before_action :set_invitation, only: %i[ show edit update destroy ]
 
   def index
-    @invitations = invite_service.all_invitations
+    @invitations = invite_service.all_invitations(filter: {})
   end
 
   def show; end

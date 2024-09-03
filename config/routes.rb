@@ -18,7 +18,7 @@ Rails.application.routes.draw do
       resources :tokens, only: [:create]
       resources :users, only: [:index, :show]
       resources :companies, only: [:index, :show]
-      resources :invitations, only: [:create]
+      resources :invitations, only: [:index, :create]
     end
   end
 
