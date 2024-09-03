@@ -59,7 +59,7 @@ RSpec.describe CompaniesController, type: :controller do
     it "should success create company" do
       post :create, params: { company: { name: "Company 1" } }
 
-      expect(response).to have_http_status(:created)
+      expect(response).to have_http_status(:see_other)
     end
 
     it "should return company" do
@@ -81,7 +81,7 @@ RSpec.describe CompaniesController, type: :controller do
       company = create(:company)
       put :update, params: { id: company.id, company: { name: "Company 2" } }
 
-      expect(response).to have_http_status(:ok)
+      expect(response).to have_http_status(:see_other)
     end
 
     it "should return company" do
@@ -104,7 +104,7 @@ RSpec.describe CompaniesController, type: :controller do
       company = create(:company)
       delete :destroy, params: { id: company.id }
 
-      expect(response).to have_http_status(:no_content)
+      expect(response).to have_http_status(:see_other)
     end
 
     it "should return company deleted" do
