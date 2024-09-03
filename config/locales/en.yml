@@ -55,6 +55,8 @@ en:
     common:
       logout: "Logout"
       submit: "Submit"
+      back: "Back"
+      empty: "No records found"
 
     login:
       title: "Login"
@@ -110,6 +112,8 @@ en:
         sent_at: "Sent At"
         invited_at: "Invited At"
         accepted_at: "Accepted At"
+        start_date: "Start Date"
+        end_date: "End Date"
       status:
         pending: "Pending"
         sent: "Sent"

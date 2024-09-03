@@ -55,6 +55,7 @@ pt-BR:
       logout: "Sair"
       submit: "Enviar"
       back: "Voltar"
+      empty: "Nenhum registro encontrado"
       
     login: 
       title: "Login"
@@ -110,6 +111,8 @@ pt-BR:
         sent_at: "Enviado em"
         invited_at: "Convidado em"
         accepted_at: "Aceito em"
+        start_date: "Data de início"
+        end_date: "Data de término"
       status:
         pending: "Pendente"
         sent: "Enviado"
