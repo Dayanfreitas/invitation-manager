@@ -16,6 +16,9 @@ en:
             password:
               blank: "cannot be blank"
               too_short: "must have at least %{count} characters"
+      messages:
+        required: "is required"
+
   controller:
     users:
       create:
@@ -92,6 +95,29 @@ en:
       delete: "Delete company"
       fields:
         name: "Name"
+    
+    invitation:
+      title: "Invitations"
+      show: "View Invitation"
+      new: "Add Invitation"
+      edit: "Edit Invitation"
+      delete: "Delete Invitation"
+      fields:
+        company: "Company"
+        user: "User"
+        email: "Email"
+        status: "Status"
+        sent_at: "Sent At"
+        invited_at: "Invited At"
+        accepted_at: "Accepted At"
+      status:
+        pending: "Pending"
+        sent: "Sent"
+        invited: "Invited"
+        accepted: "Accepted"
+        rejected: "Rejected"
+        canceled: "Canceled"
+
   errors:
     messages:
       blank: "cannot be blank"

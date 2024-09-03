@@ -1,11 +1,16 @@
 <div id="<%= dom_id invitation %>">
   <p>
-    <strong>Company:</strong>
+    <strong>
+      <%=I18n.t('views.invitation.fields.company')%>: 
+    </strong>
+
     <%= invitation.company_id %>
   </p>
 
   <p>
-    <strong>User:</strong>
+    <strong>
+      <%=I18n.t('views.invitation.fields.user')%>: 
+    </strong>
     <%= invitation.user_id %>
     <p>
       <%= invitation.user.email %>
@@ -13,17 +18,21 @@
   </p>
 
   <p>
-    <strong>Status:</strong>
-    <%= invitation.status %>
+    <strong>
+      <%=I18n.t('views.invitation.fields.status') %>:
+    </strong>
+    <%= I18n.t("views.invitation.status.#{invitation.status}") %>
   </p>
 
   <p>
-    <strong>Invited at:</strong>
+    <strong>
+      <%=I18n.t('views.invitation.fields.invited_at') %>:
+    </strong>
     <%= invitation.invited_at %>
   </p>
 
   <p>
-    <strong>token:</strong>
+    <strong>Token:</strong>
     <%= invitation.token %>
   </p>
 

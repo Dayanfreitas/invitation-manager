@@ -6,6 +6,7 @@ pt-BR:
       user:
         email: "E-mail"
         password: "Senha"
+  
     errors:
       models:
         user:
@@ -16,6 +17,8 @@ pt-BR:
             password:
               blank: "não pode ficar em branco"
               too_short: "deve ter no mínimo %{count} caracteres"
+      messages:
+        required: "é obrigatório"
   controller:
     users:
       create:
@@ -92,6 +95,28 @@ pt-BR:
       delete: "Deletar empresa"
       fields:
         name: "Nome"
+
+    invitation:
+      title: "Convites"
+      show: "Visualizar convite"
+      new: "Adicionar convite"
+      edit: "Editar convite"
+      delete: "Deletar convite"
+      fields:
+        company: "Empresa"
+        user: "Usuário"
+        email: "Email"
+        status: "Situação"
+        sent_at: "Enviado em"
+        invited_at: "Convidado em"
+        accepted_at: "Aceito em"
+      status:
+        pending: "Pendente"
+        sent: "Enviado"
+        invited: "Convidado"
+        accepted: "Aceito"
+        rejected: "Rejeitado"
+        canceled: "Cancelado"
 
   errors:
     messages:
