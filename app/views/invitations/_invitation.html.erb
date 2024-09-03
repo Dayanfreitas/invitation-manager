@@ -1,0 +1,39 @@
+<div id="<%= dom_id invitation %>">
+  <p>
+    <strong>
+      <%=I18n.t('views.invitation.fields.company')%>: 
+    </strong>
+
+    <%= invitation.company.name %>
+  </p>
+
+  <p>
+    <strong>
+      <%=I18n.t('views.invitation.fields.user')%>: 
+    </strong>
+    <%= invitation.user_id %>
+    <p>
+      <%= invitation.user.email %>
+    </p>
+  </p>
+
+  <p>
+    <strong>
+      <%=I18n.t('views.invitation.fields.status') %>:
+    </strong>
+    <%= I18n.t("views.invitation.status.#{invitation.status}") %>
+  </p>
+
+  <p>
+    <strong>
+      <%=I18n.t('views.invitation.fields.invited_at') %>:
+    </strong>
+    <%= invitation.invited_at %>
+  </p>
+
+  <p>
+    <strong>Token:</strong>
+    <%= invitation.token %>
+  </p>
+
+</div>

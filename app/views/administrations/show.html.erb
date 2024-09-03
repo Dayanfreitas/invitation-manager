@@ -1,0 +1,11 @@
+<p style="color: green"><%= notice %></p>
+
+
+<%= render 'administrator', administrator: @administrator %>
+    
+<div>
+  <%= link_to I18n.t('views.admin.edit'), edit_administration_path(id: @administrator.id) %> |
+  <%= link_to I18n.t('views.common.back'), administrations_path %>
+
+  <%= button_to I18n.t('views.admin.delete'), administration_path(id: @administrator.id), method: :delete %>
+</div>

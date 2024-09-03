@@ -1,7 +1,32 @@
 Rails.application.routes.draw do
-  # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
+  devise_for :users, 
+    path_names: {
+      sign_in: 'login',
+      sign_out: 'logout'
+    }, 
+    controllers: {
+      sessions: 'users/sessions', 
+      registrations: 'users/registrations'
+    }
 
-  # Defines the root path route ("/")
-  # root "articles#index"
-  resources :items
+  devise_scope :user do
+    get "logout", to: "users/sessions#destroy"
+  end
+
+  namespace :api, defaults: { format: :json } do
+    namespace :v1 do
+      resources :tokens, only: [:create]
+      resources :users, only: [:index, :show]
+      resources :companies, only: [:index, :show]
+      resources :invitations, only: [:index, :create]
+    end
+  end
+
+  resources :administrations
+  resources :companies
+  resources :invitations
+  
+  get 'not_found', to: 'errors#not_found'
+
+  root to: 'home#index'
 end

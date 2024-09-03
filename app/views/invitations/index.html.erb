@@ -1,0 +1,45 @@
+<p style="color: green"><%= notice %></p>
+
+<h1>
+  <%=I18n.t('views.invitation.title') %>
+</h1>
+
+<%= form_with(url: invitations_path, method: :get, local: true) do %>
+  <div>
+    <%= label_tag I18n.t('views.invitation.fields.user') %>
+    <%= text_field_tag :user, params[:name] %>
+  </div>
+
+  <div>
+    <%= label_tag I18n.t('views.invitation.fields.company') %>
+    <%= text_field_tag :company, params[:company] %>
+  </div>
+
+  <div>
+    <%= label_tag :start_date, I18n.t('views.invitation.fields.start_date') %>
+    <%= date_field_tag :start_date, params[:start_date] %>
+  </div>
+
+  <div>
+    <%= label_tag :end_date, I18n.t('views.invitation.fields.end_date') %>
+    <%= date_field_tag :end_date, params[:end_date] %>
+  </div>
+
+  <div>
+    <%= submit_tag 'Filter' %>
+  </div>
+<% end %>
+
+<div id="invitations">
+  <% @invitations.each do |invitation| %>
+    <%= render invitation %>
+    <p>
+      <%= link_to I18n.t('views.invitation.show'), invitation %>
+    </p>
+  <% end %>
+  <% if @invitations.empty? %>
+  <%= I18n.t('views.common.empty') %>
+  <% end %>
+</div>
+
+<%= link_to I18n.t('views.invitation.new'), new_invitation_path %>

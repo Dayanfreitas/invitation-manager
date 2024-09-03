@@ -1,0 +1,39 @@
+<%= form_with(model: invitation) do |form| %>  
+  <% if invitation.errors.any? %>
+    <div style="color: red">
+      <ul>
+        <% invitation.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div>
+    <%= form.label I18n.t('views.invitation.fields.company'), style: "display: block" %>
+    <%= form.select :company_id, Company.all.collect { |c| [c.name, c.id]}  %>
+  </div>
+
+  <% unless invitation.persisted? %>
+    <div>
+      <%= form.label I18n.t('views.invitation.fields.email'), style: "display: block" %>
+      <%= form.text_field :email, required: true %>
+    </div>
+  <% end %>
+
+ <% if invitation.persisted? %>
+    <div>
+      <%= form.label I18n.t('views.invitation.fields.status'), style: "display: block" %>
+      <%= form.select :status, options_for_status %>
+    </div>
+ <% end %>
+
+  <div>
+    <%= form.label I18n.t('views.invitation.fields.invited_at'), style: "display: block" %>
+    <%= form.datetime_field :invited_at, readonly: true%>
+  </div>
+
+  <div>
+    <%= form.submit I18n.t('views.common.submit') %>
+  </div>
+<% end %>
