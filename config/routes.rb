@@ -16,7 +16,7 @@ Rails.application.routes.draw do
   namespace :api, defaults: { format: :json } do
     namespace :v1 do
       resources :tokens, only: [:create]
-      resources :users, only: [:index]
+      resources :users, only: [:index, :show]
       resources :invitations, only: [:create]
     end
   end
