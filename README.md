@@ -1,24 +1,105 @@
-# README
+# Invitation manager
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## 🚀 Instalando Invitation manager
 
-Things you may want to cover:
+```bash
+git clone git@github.com:Dayanfreitas/invitation-manager.
+```
 
-* Ruby version
+```
+cd invitation-manager
+```
 
-* System dependencies
+## ☕ Usando Invitation manager
 
-* Configuration
+Para usar Invitation manager, siga estas etapas:
 
-* Database creation
+### Docker 
 
-* Database initialization
+Usando o docker para subir o projeto 
 
-* How to run the test suite
+```bash
+docker-compose up
+```
 
-* Services (job queues, cache servers, search engines, etc.)
+Acesse o terminal docker 
 
-* Deployment instructions
+```bash
+docker exec -it app-invitation-manager /bin/bash
+```
 
-* ...
+Rode o bundle 
+```bash
+bundle install
+```
+Faça as migrações do banco antes de subir aplicação
+
+Para subir aplicação
+
+```bash
+rails s -p 3000 -b 0.0.0.0
+```
+
+### Usando o makefile 
+
+Build do container
+
+```
+make up
+```
+
+Entrando no bash 
+```bash
+make bash
+```
+
+### Migrações
+
+```bash
+rails db:create
+rails db:migrate
+```
+
+## Popular base 
+Para popular base com dados 
+
+1- Entre no no terminal do docker
+
+2- Rode a task
+```bash 
+rails db:populate
+```
+
+A taks deve criar um usuário para teste
+
+Usuário para teste:
+```
+user: dayan.freitas@test.com
+login: 123456
+```
+
+
+# Views
+* Home - /
+* Administrations - /administrations
+* Companies - /companies
+* Convites - /invitations
+
+# Api
+Para usar o arquivo de de endpoint 
+[Api doc](doc/Insomnia_2024-09-03.json)
+
+
+### Rotas:
+
+### api/v1/tokens
+  
+Para geração de token:
+
+
+# Test
+* Rspec
+* 
+```
+rspec
+```

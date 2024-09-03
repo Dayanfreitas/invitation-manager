@@ -1,0 +1,17 @@
+<p style="color: green"><%= notice %></p>
+
+<h1>
+  <%# Administrators %>
+  <%= I18n.t('views.admin.title') %>
+</h1>
+
+<div id="invitations">
+  <% @administrators.each do |administrator| %>
+    <%= render 'administrator', administrator: administrator %>
+    <p>
+      <%= link_to I18n.t('views.admin.show'), administration_path(id: administrator.id) %>
+    </p>
+  <% end %>
+</div>
+
+<%= link_to I18n.t('views.admin.new'), new_administration_path %>

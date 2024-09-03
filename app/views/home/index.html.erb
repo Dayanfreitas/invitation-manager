@@ -1,0 +1,17 @@
+<h1>
+  <%= I18n.t("views.home.title") %>
+</h1>
+
+<p>
+  <%= I18n.t("views.home.welcome") %>
+</p>
+
+<%= link_to I18n.t("views.common.logout"), logout_path, method: :delete %>
+
+<nav>
+  <ul>
+    <li><%= link_to I18n.t("views.home.navigation.admin"), administrations_path %></li>
+    <li><%= link_to I18n.t("views.home.navigation.company"), companies_path %></li>
+    <li><%= link_to I18n.t("views.home.navigation.invitations"), invitations_path %></li>
+  </ul>
+</nav>

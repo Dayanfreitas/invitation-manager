@@ -64,17 +64,10 @@ RUN sudo chown -R ruby $APP
 RUN sudo chown -R ruby  /usr/local/bundle
 
 # GEM
-# RUN echo "gem: --no-document" > ~/.gemrc
-# RUN gem install nokogiri -v 1.16.0
-# RUN gem install rdoc:3.12.2
-# RUN gem install pagseguro-oficial:2.6.0
-# RUN gem install public_suffix -v 4.0.7
-# RUN gem install twitter:5.9.0
-
-# RUN git config --global --add safe.directory /var/www
+RUN gem install mailcatcher
 
 # RUN gem install bundler -v 2.5.5
-#RUN bundle install
+# RUN bundle install
 
 # Expose ports.
 EXPOSE 3000

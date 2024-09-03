@@ -35,9 +35,11 @@ gem "bootsnap", require: false
 
 # Use Rack CORS for handling Cross-Origin Resource Sharing (CORS), making cross-origin AJAX possible
 # gem "rack-cors"
+gem "devise", '4.9'
+gem 'jwt'
+gem 'jbuilder', '2.12.0'
 
 group :development, :test do
-  # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
   gem "debug", platforms: %i[ mri mingw x64_mingw ]
   gem 'test-unit', '3.6.2'
   gem 'rspec', '3.13.0'
@@ -50,11 +52,10 @@ group :development, :test do
   gem 'rubocop-checkstyle_formatter', '0.4.0', require: false
   gem 'rubocop', '0.79', require: false
   gem 'brakeman', '6.1.1', require: false
-  # gem 'reek', require: false
   gem 'overcommit', '0.63.0'
   gem 'fasterer', '0.11.0'
   gem 'factory_bot_rails', '6.4.3'
-  gem 'faker', '3.2.3', require: false
+  gem 'faker', '3.4.1'
   gem 'fuubar', '2.5.1'
   gem 'bundler-audit', '0.9.1'
   gem 'rails_best_practices', '1.23.2'
@@ -65,7 +66,8 @@ group :test do
   gem 'simplecov', '0.22.0'
   gem 'rspec-sidekiq', '4.1.0'
   # gem 'sidekiq-status', '3.0.3'
-  # gem 'rails-controller-testing', '1.0.5'
+  gem 'rails-controller-testing', '1.0.5'
+  gem 'database_cleaner-active_record', '2.2.0'
 end
 
 

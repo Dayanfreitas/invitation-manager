@@ -1,0 +1,126 @@
+pt-BR:
+  activerecord:
+    models:
+      user: "Usuário"
+    attributes:
+      user:
+        email: "E-mail"
+        password: "Senha"
+  
+    errors:
+      models:
+        user:
+          attributes:
+            email:
+              blank: "não pode ficar em branco"
+              taken: "já está em uso"
+            password:
+              blank: "não pode ficar em branco"
+              too_short: "deve ter no mínimo %{count} caracteres"
+      messages:
+        required: "é obrigatório"
+  controller:
+    users:
+      create:
+        success: "Usuario foi criado com sucesso."
+        failure: "Usuario não pode ser criado."
+      update:
+        success: "Usuario foi atualizado com sucesso."
+        failure: "Usuario não pode ser atualizado."
+      destroy:
+        success: 'Usuario foi destruido com sucesso.'
+        failure: 'Usuario não pode ser destruido.'
+    companies:
+      create:
+        success: "Empresa foi criada com sucesso."
+        failure: "Empresa não pode ser criada."
+      update:
+        success: "Empresa foi atualizada com sucesso."
+        failure: "Empresa não pode ser atualizada."
+      destroy:
+        success: "Empresa foi destruida com sucesso."
+        failure: "Empresa não pode ser destruida."
+    invitations:
+      create:
+        success: "Convite foi criado com sucesso."
+        failure: "Convite não pode ser criado."
+      update:
+        success: "Convite foi atualizado com sucesso."
+        failure: "Convite não pode ser atualizado."
+      destroy:
+        success: "Convite foi destruido com sucesso."
+        failure: "Convite não pode ser destruido."
+  views:
+    common:
+      logout: "Sair"
+      submit: "Enviar"
+      back: "Voltar"
+      empty: "Nenhum registro encontrado"
+      
+    login: 
+      title: "Login"
+      fields:
+        email: "Email"
+        password: "Senha"
+      log_in: "Login"
+      remember-me: "Lembrar-me"
+    
+    shared:
+      registrations: "Registe-se"
+
+    home:
+      title: "Home"
+      welcome: "Seja bem-vindo ao sistema de convites"
+      navigation:
+        home: "Home"
+        admin: "Administradores"
+        company: "Empresas"
+        invitations: "Convites"
+
+    admin:
+      title: "Administradores"
+      show: "Visualizar administrador"
+      new: "Adicionar administrador"
+      edit: "Editar administrador"
+      delete: "Deletar administrador"
+      form:
+        fields:
+          email: "Email"
+          password: "Senha"
+
+    company:
+      title: "Empresas"
+      show: "Visualizar empresa"
+      new: "Adicionar empresa"
+      edit: "Editar empresa"
+      delete: "Deletar empresa"
+      fields:
+        name: "Nome"
+
+    invitation:
+      title: "Convites"
+      show: "Visualizar convite"
+      new: "Adicionar convite"
+      edit: "Editar convite"
+      delete: "Deletar convite"
+      fields:
+        company: "Empresa"
+        user: "Usuário"
+        email: "Email"
+        status: "Situação"
+        sent_at: "Enviado em"
+        invited_at: "Convidado em"
+        accepted_at: "Aceito em"
+        start_date: "Data de início"
+        end_date: "Data de término"
+      status:
+        pending: "Pendente"
+        sent: "Enviado"
+        invited: "Convidado"
+        accepted: "Aceito"
+        rejected: "Rejeitado"
+        canceled: "Cancelado"
+
+  errors:
+    messages:
+      blank: "não pode ficar em branco"

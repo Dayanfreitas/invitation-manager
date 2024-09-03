@@ -1,0 +1,21 @@
+
+<h1>Olá seja bem vindo !</h1>
+
+<p>
+  Você foi convidado a participar! Acesse o link abaixo e utilize o código de convite para se juntar a nós.
+</p>
+
+<div>
+  <%= link_to 'Clique aqui para se juntar', @link, style: 'padding: 10px; background-color: #ccc; border-radius: 5px; text-decoration: none; color: #000;' %>
+</div>
+
+<br />
+<br />
+
+<div style="margin-top: 10px">
+  <code>
+    <%= @token %>
+  </code>
+</div>
+
+<%= @link %>

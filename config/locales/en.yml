@@ -1,33 +1,127 @@
-# Files in the config/locales directory are used for internationalization
-# and are automatically loaded by Rails. If you want to use locales other
-# than English, add the necessary files in this directory.
-#
-# To use the locales, use `I18n.t`:
-#
-#     I18n.t "hello"
-#
-# In views, this is aliased to just `t`:
-#
-#     <%= t("hello") %>
-#
-# To use a different locale, set it with `I18n.locale`:
-#
-#     I18n.locale = :es
-#
-# This would use the information in config/locales/es.yml.
-#
-# The following keys must be escaped otherwise they will not be retrieved by
-# the default I18n backend:
-#
-# true, false, on, off, yes, no
-#
-# Instead, surround them with single quotes.
-#
-# en:
-#   "true": "foo"
-#
-# To learn more, please read the Rails Internationalization guide
-# available at https://guides.rubyonrails.org/i18n.html.
-
 en:
-  hello: "Hello world"
+  activerecord:
+    models:
+      user: "User"
+    attributes:
+      user:
+        email: "Email"
+        password: "Password"
+    errors:
+      models:
+        user:
+          attributes:
+            email:
+              blank: "cannot be blank"
+              taken: "has already been taken"
+            password:
+              blank: "cannot be blank"
+              too_short: "must have at least %{count} characters"
+      messages:
+        required: "is required"
+
+  controller:
+    users:
+      create:
+        success: "User was successfully created."
+        failure: "User could not be created."
+      update:
+        success: "User was successfully updated."
+        failure: "User could not be updated."
+      destroy:
+        success: "User was successfully destroyed."
+        failure: "User could not be destroyed."
+    companies:
+      create:
+        success: "Company was successfully created."
+        failure: "Company could not be created."
+      update:
+        success: "Company was successfully updated."
+        failure: "Company could not be updated."
+      destroy:
+        success: "Company was successfully destroyed."
+        failure: "Company could not be destroyed."
+    invitations:
+      create:
+        success: "Invitation was successfully created."
+        failure: "Invitation could not be created."
+      update:
+        success: "Invitation was successfully updated."
+        failure: "Invitation could not be updated."
+      destroy:
+        success: "Invitation was successfully destroyed."
+        failure: "Invitation could not be destroyed."
+
+  views:
+    common:
+      logout: "Logout"
+      submit: "Submit"
+      back: "Back"
+      empty: "No records found"
+
+    login:
+      title: "Login"
+      fields:
+        email: "Email"
+        password: "Password"
+      log_in: "Login"
+      remember-me: "Remember me"
+      
+    shared:
+      registrations: "Registrations"
+
+    home:
+      title: "Home"
+      welcome: "Welcome to the invitation system"
+      navigation:
+        home: "Home"
+        admin: "Admin"
+        company: "Company"
+        invitations: "Invitations"
+
+    admin:
+      title: "Administrator"
+      show: "Show administrator"
+      new: "New administrator"
+      edit: "Editings administrator"
+      delete: "Delete administrator"
+      form:
+        fields:
+          email: "Email"
+          password: "Password"
+    
+    company:
+      title: "Company"
+      show: "Show company"
+      new: "New company"
+      edit: "Edit company"
+      delete: "Delete company"
+      fields:
+        name: "Name"
+    
+    invitation:
+      title: "Invitations"
+      show: "View Invitation"
+      new: "Add Invitation"
+      edit: "Edit Invitation"
+      delete: "Delete Invitation"
+      fields:
+        company: "Company"
+        user: "User"
+        email: "Email"
+        status: "Status"
+        sent_at: "Sent At"
+        invited_at: "Invited At"
+        accepted_at: "Accepted At"
+        start_date: "Start Date"
+        end_date: "End Date"
+      status:
+        pending: "Pending"
+        sent: "Sent"
+        invited: "Invited"
+        accepted: "Accepted"
+        rejected: "Rejected"
+        canceled: "Canceled"
+
+  errors:
+    messages:
+      blank: "cannot be blank"

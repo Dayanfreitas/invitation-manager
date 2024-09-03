@@ -1,0 +1,11 @@
+<h1>
+  <%= I18n.t('views.admin.new') %>
+</h1>
+
+<%= render "form", administrator: @administrator %>
+
+<br>
+
+<div>
+  <%= link_to I18n.t('views.common.back'), administrations_path %>
+</div>

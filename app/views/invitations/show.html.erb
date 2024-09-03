@@ -1,0 +1,10 @@
+<p style="color: green"><%= notice %></p>
+
+<%= render @invitation %>
+
+<div>
+  <%= link_to I18n.t('views.invitation.edit'), edit_invitation_path(@invitation) %> |
+  <%= link_to I18n.t('views.common.back'), invitations_path %>
+
+  <%= button_to I18n.t('views.invitation.delete'), @invitation, method: :delete %>
+</div>
