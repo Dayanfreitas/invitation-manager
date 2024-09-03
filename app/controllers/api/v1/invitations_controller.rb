@@ -1,6 +1,5 @@
 class Api::V1::InvitationsController < Api::ApplicationController 
   def index
-    invitequerybuilder = InviteQueryBuilder.new
 
     @response = invite_service.all_invitations(filter: {
       start_date: params[:start_date],
