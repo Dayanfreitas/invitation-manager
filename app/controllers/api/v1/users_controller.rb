@@ -3,8 +3,9 @@ class Api::V1::UsersController < Api::ApplicationController
   def index
     @response = UsersService.new(UsersRepository.new).get_all
     @data = @response
-
-    render 'api/v1/users/index'
+    @status = 200
+    
+    render 'api/v1/users/index', status: @status
   end
 
   def show
