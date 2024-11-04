@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Myapp</title>
+  <%= stylesheet_link_tag "tailwind", "inter-font", "data-turbo-track": "reload" %>
+  <%= stylesheet_link_tag  "application", media: "all", "data-turbolinks-track" => true %>
+
+  <%# <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
+  <%= csrf_meta_tags %>
+
+  <%= csp_meta_tag %>
+  <%= vite_client_tag %>
+
+  <%= vite_javascript_tag 'index.jsx' %>
+  <%# <%= vite_stylesheet_tag 'typography', media: 'print' %>
+</head>
+<body>
+    <%= yield %>
+
+</body>
+</html>
