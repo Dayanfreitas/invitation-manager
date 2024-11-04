@@ -1,3 +1,4 @@
+<div id="root"></div>
 <h1>
   <%= I18n.t("views.home.title") %>
 </h1>
@@ -8,10 +9,11 @@
 
 <%= link_to I18n.t("views.common.logout"), logout_path, method: :delete %>
 
-<nav>
-  <ul>
-    <li><%= link_to I18n.t("views.home.navigation.admin"), administrations_path %></li>
-    <li><%= link_to I18n.t("views.home.navigation.company"), companies_path %></li>
-    <li><%= link_to I18n.t("views.home.navigation.invitations"), invitations_path %></li>
+<nav class="bg-gray-800 p-4">
+  <ul class="flex space-x-4">
+    <li><%= link_to I18n.t("views.home.navigation.admin"), administrations_path, class: "text-white hover:text-gray-400" %></li>
+    <li><%= link_to I18n.t("views.home.navigation.company"), companies_path, class: "text-white hover:text-gray-400" %></li>
+    <li><%= link_to I18n.t("views.home.navigation.invitations"), invitations_path, class: "text-white hover:text-gray-400" %></li>
   </ul>
 </nav>
+

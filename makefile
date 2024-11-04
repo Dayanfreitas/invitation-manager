@@ -1,8 +1,8 @@
 up:
-	docker-compose up -d
+	docker compose up -d
 
 stop:
-	docker-compose stop
+	docker compose stop
 
 bash:
 	docker exec -it app-invitation-manager /bin/bash

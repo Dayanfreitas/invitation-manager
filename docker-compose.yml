@@ -16,6 +16,7 @@ services:
     container_name: 'app-invitation-manager'
     ports:
       - 3000:3000
+      - 3036:3036
       - 1080:1080
       - 1025:1025
     volumes:
