@@ -76,3 +76,6 @@ group :development do
   # gem "spring"
 end
 
+gem 'vite_rails'
+gem 'sprockets-rails'
+gem "tailwindcss-rails"
